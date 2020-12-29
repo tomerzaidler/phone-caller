@@ -4,7 +4,7 @@
       <mat-sidenav class="sidenav" #sidenav mode="side" disableClose opened>
         <mat-nav-list>
           <!-- <ng-container *ngFor="let tab of tabs" > -->
-            <mat-list-item *ngFor="let tab of tabs" [routerLink]="tab.redirect" routerLinkActive="active-link"
+            <mat-list-item *ngFor="let tab of tabs" (click)="scroll(tab.svgIconName)"
             [ngClass]="{
               'active-link1': tab.isHighlighted}" >
               <!-- <mat-icon mat-list-icon [svgIcon]="tab.svgIconName"></mat-icon> -->
@@ -15,7 +15,11 @@
       </mat-sidenav>
 
       <mat-sidenav-content class="content">
-        <router-outlet></router-outlet>
+        <!-- <router-outlet></router-outlet> -->
+        <app-home #home></app-home>
+        <app-bio #bio></app-bio>
+        <app-projects #projects></app-projects>
+        <app-contact #contact></app-contact>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>

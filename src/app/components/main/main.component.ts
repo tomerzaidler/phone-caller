@@ -13,6 +13,11 @@ import { ProjectsComponent } from '../projects/projects.component';
 })
 export class MainComponent implements OnInit {
   tabs: any;
+  @ViewChild('home') homeElement: HomeComponent;
+  @ViewChild('bio') bioElement: BioComponent;
+  @ViewChild('projects') projectElement: ProjectsComponent;
+  @ViewChild('contact') contactElement: ContactComponent;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -22,7 +27,7 @@ export class MainComponent implements OnInit {
         redirect: '/home',
         svgIconName: 'home',
         isVisible: true,
-        isHighlighted: false,
+        isHighlighted: true,
       },
       {
         label: 'Bio',
@@ -51,4 +56,22 @@ export class MainComponent implements OnInit {
   setActiveItem(url: string) {
   }
 
+  scroll(id) {
+    switch (id) {
+      case 'home': { this.highlightItem(id); this.homeElement.scroll(); break;}
+      case 'bio': { this.highlightItem(id); this.bioElement.scroll(); break;}
+      case 'projects': { this.highlightItem(id); this.projectElement.scroll(); break;}
+      case 'contact': { this.highlightItem(id); this.contactElement.scroll(); break;}
+    }
+  }
+
+  highlightItem(item: string) {
+    this.tabs.forEach(tab => {
+      if(tab.svgIconName === item) {
+        tab.isHighlighted = true;
+      } else {
+        tab.isHighlighted = false;
+      }
+    });
+  }
 }

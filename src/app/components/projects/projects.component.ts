@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-projects',
@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
-
+  @ViewChild('projects') element: ElementRef;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  scroll() {
+    if (this.element) {
+      this.element.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
   }
 
 }
