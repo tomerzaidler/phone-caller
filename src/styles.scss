@@ -10,3 +10,65 @@ body {
 
 html, body { height: 100%; width: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// * Scroll styles
+//page scroll
+.page-scroll {
+
+}
+
+  /* width */
+.page-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.page-scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #E7E8E9;
+  border-radius: 2.5px;
+}
+
+/* Handle */
+.page-scroll::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 2.5px;
+  background-color: #aa87ad;
+}
+
+/* Handle on hover */
+.page-scroll::-webkit-scrollbar-thumb:hover {
+  background: ad9baf;
+}
+
+
+// menu scroll
+/* create the class */
+.menu-scroll {
+
+}
+ /* set width */
+.menu-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* set Track */
+.menu-scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #E7E8E9;
+  border-radius: 5px;
+}
+/* set Handle */
+.menu-scroll::-webkit-scrollbar-thumb {
+  width: 3px;
+  height: 53px;
+  border-radius: 5px;
+  background-color: #aa87ad;
+}
+/* set Handle on hover */
+.menu-scroll::-webkit-scrollbar-thumb:hover {
+  background: #ad9baf;
+}
+
+
+
+// * end of scroll styles
