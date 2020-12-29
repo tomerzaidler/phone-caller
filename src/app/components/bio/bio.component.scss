@@ -1,0 +1,13 @@
+.bio-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: white;
+  align-items: center;
+  padding-top: 20px;
+  .bio-header {
+    display: flex;
+    flex-direction: row;
+  }
+}

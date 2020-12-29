@@ -1,0 +1,64 @@
+.main-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  .toolbar-wrapper {
+    .toolbar-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .sidenav {
+      // background: rgba(197, 203, 240, 0.808);
+      background: rgb(170, 135, 173);;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .mat-list-item {
+        &.active-link, &.active-link1, &.active-link:hover, &.active-link1:hover {
+        background-color: #fff;
+        ::ng-deep .mat-icon {
+            svg:not(#show-page-icon) {
+                g {
+                    path {
+                        fill: #120833;
+                    }
+                }
+
+            }
+            svg#show-page-icon {
+                g {
+                    path {
+                        stroke: #120833;
+                    }
+                }
+            }
+        }
+        .tab-name {
+            color: #120833;
+            letter-spacing: 0.23px;
+            font-weight: 500;
+        }
+      }
+    }
+
+    .mat-list-item:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+  }
+  .content {
+    height: 100%;
+    width: calc(100% - 200px);
+    background: #fff;
+    overflow: hidden;
+  }
+
+}

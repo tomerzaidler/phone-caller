@@ -1,0 +1,22 @@
+<div class="main-wrapper">
+  <div class="toolbar-wrapper">
+    <mat-sidenav-container class="toolbar-container" [hasBackdrop]="false">
+      <mat-sidenav class="sidenav" #sidenav mode="side" disableClose opened>
+        <mat-nav-list>
+          <!-- <ng-container *ngFor="let tab of tabs" > -->
+            <mat-list-item *ngFor="let tab of tabs" [routerLink]="tab.redirect" routerLinkActive="active-link"
+            [ngClass]="{
+              'active-link1': tab.isHighlighted}" >
+              <!-- <mat-icon mat-list-icon [svgIcon]="tab.svgIconName"></mat-icon> -->
+              <p matLine class="tab-name">{{ tab.label }}</p>
+            </mat-list-item>
+          <!-- </ng-container> -->
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>

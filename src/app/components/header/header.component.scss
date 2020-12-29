@@ -1,0 +1,40 @@
+.header-wrapper {
+  $extra-large: 100px;
+  $green: green;
+  $pink: pink;
+  height: 200px;
+  width: 325px;
+  background: rgb(170, 135, 173);
+  padding: 55px;
+  align-items: center;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  .header{
+    $random-text: 'foreign terrace';
+    $stroke-width: $extra-large * 0.05;
+    position: relative;
+    display: inline-block;
+    font-size: $extra-large;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-style: italic;
+    color: transparent;
+    -webkit-text-stroke-width: $stroke-width;
+    -webkit-text-stroke-color: white;
+    white-space: nowrap;
+    $x: 12px;
+    $y: 15px;
+    $step: 1px;
+    margin-left: -20px;
+
+    text-shadow: $x $y $green,
+                 $x + $step $y + $step $pink,
+                 $x + $step * 2 $y + $step * 2 $pink,
+                 $x + $step * 3 $y + $step * 3 $pink,
+                 $x + $step * 4 $y + $step * 4 $pink,
+                 $x + $step * 5 $y + $step * 5 $pink,
+                 $x + $step * 6 $y + $step * 6 $pink,
+                 $x + $step * 7 $y + $step * 7 $pink,
+  }
+}

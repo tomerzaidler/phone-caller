@@ -12,8 +12,5 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openGate() {
-    console.log('HILA');
-    window.open('tel:+972542157001', '_system');
-  }
+
 }
