@@ -1,6 +1,8 @@
 import { ComponentPortal, Portal } from '@angular/cdk/portal';
+import { isQuote } from '@angular/compiler';
 import { AfterViewInit, ChangeDetectorRef, COMPILER_OPTIONS, Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
+import { Scroll } from '@angular/router';
 import { BioComponent } from '../bio/bio.component';
 import { ContactComponent } from '../contact/contact.component';
 import { HomeComponent } from '../home/home.component';
@@ -11,8 +13,9 @@ import { ProjectsComponent } from '../projects/projects.component';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, AfterViewInit {
   tabs: any;
+  @ViewChild(MatSidenavContainer) sidenavContainer: MatSidenavContainer;
   @ViewChild('home') homeElement: HomeComponent;
   @ViewChild('bio') bioElement: BioComponent;
   @ViewChild('projects') projectElement: ProjectsComponent;
@@ -28,6 +31,7 @@ export class MainComponent implements OnInit {
         svgIconName: 'home',
         isVisible: true,
         isHighlighted: true,
+        maxOffset: 967
       },
       {
         label: 'Bio',
@@ -35,6 +39,7 @@ export class MainComponent implements OnInit {
         svgIconName: 'bio',
         isVisible: true,
         isHighlighted: false,
+        maxOffset: 1924
       },
       {
         label: 'Projects',
@@ -42,6 +47,7 @@ export class MainComponent implements OnInit {
         svgIconName: 'projects',
         isVisible: true,
         isHighlighted: false,
+        maxOffset: 2881
       },
       {
         label: 'Contact',
@@ -51,6 +57,12 @@ export class MainComponent implements OnInit {
         isHighlighted: false,
       }
     ];
+  }
+
+  ngAfterViewInit() {
+    // this.sidenavContainer.scrollable.elementScrolled().subscribe((e) => {
+    //   console.log(e);
+    // });
   }
 
   setActiveItem(url: string) {
@@ -73,5 +85,13 @@ export class MainComponent implements OnInit {
         tab.isHighlighted = false;
       }
     });
+  }
+
+  onScroll(event: any) {
+    const scrollPosition = event?.srcElement?.scrollTop;
+      if (scrollPosition > 0 && scrollPosition < 739) { this.highlightItem('home');}
+      else if (scrollPosition >= 739 && scrollPosition < 1739) { this.highlightItem('bio');}
+      else if (scrollPosition >= 1739 && scrollPosition < 2739) { this.highlightItem('projects');}
+      else if (scrollPosition >= 2739 && scrollPosition <= 2891) { this.highlightItem('contact');}
   }
 }

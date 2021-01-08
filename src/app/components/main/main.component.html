@@ -14,7 +14,7 @@
         </mat-nav-list>
       </mat-sidenav>
 
-      <mat-sidenav-content class="content page-scroll">
+      <mat-sidenav-content (scroll)="onScroll($event)" class="content page-scroll">
         <!-- <router-outlet></router-outlet> -->
         <app-home #home></app-home>
         <app-bio #bio></app-bio>
