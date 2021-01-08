@@ -27,7 +27,7 @@
     $y: 15px;
     $step: 1px;
     margin-left: -20px;
-
+    transition: font-size 3s ;
     text-shadow: $x $y $green,
                  $x + $step $y + $step $pink,
                  $x + $step * 2 $y + $step * 2 $pink,
@@ -37,4 +37,18 @@
                  $x + $step * 6 $y + $step * 6 $pink,
                  $x + $step * 7 $y + $step * 7 $pink,
   }
+  .header:hover{
+    animation-name: in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both
+  }
+}
+@keyframes in {
+  from {font-size: 100px;}
+  to {font-size: 125px;}
+}
+@keyframes out {
+  from {font-size: 125px;}
+  to {font-size: 100px;}
 }
