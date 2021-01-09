@@ -12,9 +12,17 @@ import { fadeInUpOnEnterAnimation, bounceOutDownOnLeaveAnimation } from 'angular
 export class HeaderComponent implements OnInit {
   @Input() title: string = '';
   @Input() width: string = '200px';
+  hover: boolean;
   constructor() { }
 
   ngOnInit(): void {
+    this.hover = false;
   }
 
+  mouseEnter() {
+    this.hover = true;
+  }
+  mouseLeave() {
+    this.hover = false;
+  }
 }

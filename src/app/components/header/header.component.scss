@@ -37,18 +37,24 @@
                  $x + $step * 6 $y + $step * 6 $pink,
                  $x + $step * 7 $y + $step * 7 $pink,
   }
-  .header:hover{
+  .in{
     animation-name: in;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
     animation-fill-mode: both
   }
-}
-@keyframes in {
-  from {font-size: 100px;}
-  to {font-size: 125px;}
-}
-@keyframes out {
-  from {font-size: 125px;}
-  to {font-size: 100px;}
+  .out{
+    animation-name: out;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both
+  }
+  @keyframes in {
+    from {font-size: $extra-large;}
+    to {font-size: 125px;}
+  }
+  @keyframes out {
+    from {font-size: 125px;}
+    to {font-size: $extra-large;}
+  }
 }

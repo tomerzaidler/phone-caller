@@ -3,6 +3,8 @@ import { isQuote } from '@angular/compiler';
 import { AfterViewInit, ChangeDetectorRef, COMPILER_OPTIONS, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { Scroll } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { ScrollService } from 'src/app/scroll.service';
 import { BioComponent } from '../bio/bio.component';
 import { ContactComponent } from '../contact/contact.component';
 import { HomeComponent } from '../home/home.component';
@@ -13,7 +15,7 @@ import { ProjectsComponent } from '../projects/projects.component';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit, AfterViewInit {
+export class MainComponent implements OnInit {
   tabs: any;
   @ViewChild(MatSidenavContainer) sidenavContainer: MatSidenavContainer;
   @ViewChild('home') homeElement: HomeComponent;
@@ -21,7 +23,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   @ViewChild('projects') projectElement: ProjectsComponent;
   @ViewChild('contact') contactElement: ContactComponent;
 
-  constructor() { }
+  constructor(private scrollService: ScrollService) { }
 
   ngOnInit(): void {
     this.tabs = [
@@ -59,21 +61,16 @@ export class MainComponent implements OnInit, AfterViewInit {
     ];
   }
 
-  ngAfterViewInit() {
-    // this.sidenavContainer.scrollable.elementScrolled().subscribe((e) => {
-    //   console.log(e);
-    // });
-  }
 
   setActiveItem(url: string) {
   }
 
   scroll(id) {
     switch (id) {
-      case 'home': { this.highlightItem(id); this.homeElement.scroll(); break;}
-      case 'bio': { this.highlightItem(id); this.bioElement.scroll(); break;}
-      case 'projects': { this.highlightItem(id); this.projectElement.scroll(); break;}
-      case 'contact': { this.highlightItem(id); this.contactElement.scroll(); break;}
+      case 'home': { this.homeElement.scroll(); break;}
+      case 'bio': { this.bioElement.scroll(); break;}
+      case 'projects': { this.projectElement.scroll(); break;}
+      case 'contact': { this.contactElement.scroll(); break;}
     }
   }
 
@@ -93,5 +90,6 @@ export class MainComponent implements OnInit, AfterViewInit {
       else if (scrollPosition >= 739 && scrollPosition < 1739) { this.highlightItem('bio');}
       else if (scrollPosition >= 1739 && scrollPosition < 2739) { this.highlightItem('projects');}
       else if (scrollPosition >= 2739 && scrollPosition <= 2891) { this.highlightItem('contact');}
+      this.scrollService.mainScrollOffset = scrollPosition;
   }
 }

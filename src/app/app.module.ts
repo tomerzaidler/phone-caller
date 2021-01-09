@@ -38,6 +38,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ParallaxDirective } from './directives/parallax.directive';
 import { PortalModule } from '@angular/cdk/portal';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { PortalModule } from '@angular/cdk/portal';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     PortalModule,

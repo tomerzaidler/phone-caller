@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ScrollService } from 'src/app/scroll.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   @ViewChild('home') element: ElementRef;
-  constructor() { }
+
+  private mainScrollOffset: number;
+
+  constructor(private scrollService: ScrollService) { }
 
   ngOnInit(): void {
+    this.scrollService.mainScrollOffsetObservable.subscribe(offset => {
+      this.mainScrollOffset = offset;
+      console.log(this.mainScrollOffset);
+    });
   }
 
   scroll() {

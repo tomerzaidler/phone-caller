@@ -1,3 +1,5 @@
-<div class="header-wrapper" [ngStyle]="{width: width}" [@enter] [@leave]>
-<h1 class="header">{{title}}</h1>
+<div class="header-wrapper"
+[ngStyle]="{width: width}" [@enter] [@leave]>
+<h1 (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()"
+class="header" [ngClass]="{'in': hover, 'out': !hover}">{{title}}</h1>
 </div>
