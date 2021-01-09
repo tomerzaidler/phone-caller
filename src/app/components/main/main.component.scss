@@ -14,7 +14,8 @@
 
     .sidenav {
       // background: rgba(197, 203, 240, 0.808);
-      background: rgb(170, 135, 173);;
+      // background: rgb(170, 135, 173);
+      background: #FEC9C7;
       width: 200px;
       display: flex;
       flex-direction: column;
@@ -57,8 +58,14 @@
   .content {
     height: 100%;
     width: calc(100% - 200px);
-    background: #fff;
+    position: relative;
     overflow: auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+
   }
 
 }

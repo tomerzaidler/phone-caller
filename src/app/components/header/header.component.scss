@@ -28,7 +28,7 @@
     $step: 1px;
     margin-left: -20px;
     transition: font-size 3s ;
-    text-shadow: $x $y $green,
+    text-shadow: $x $y #D3EFEA,
                  $x + $step $y + $step $pink,
                  $x + $step * 2 $y + $step * 2 $pink,
                  $x + $step * 3 $y + $step * 3 $pink,

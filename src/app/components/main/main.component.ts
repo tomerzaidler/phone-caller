@@ -1,9 +1,4 @@
-import { ComponentPortal, Portal } from '@angular/cdk/portal';
-import { isQuote } from '@angular/compiler';
-import { AfterViewInit, ChangeDetectorRef, COMPILER_OPTIONS, Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
-import { Scroll } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { ScrollService } from 'src/app/scroll.service';
 import { BioComponent } from '../bio/bio.component';
 import { ContactComponent } from '../contact/contact.component';
@@ -13,11 +8,11 @@ import { ProjectsComponent } from '../projects/projects.component';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent implements OnInit {
   tabs: any;
-  @ViewChild(MatSidenavContainer) sidenavContainer: MatSidenavContainer;
   @ViewChild('home') homeElement: HomeComponent;
   @ViewChild('bio') bioElement: BioComponent;
   @ViewChild('projects') projectElement: ProjectsComponent;
@@ -88,8 +83,8 @@ export class MainComponent implements OnInit {
     const scrollPosition = event?.srcElement?.scrollTop;
       if (scrollPosition > 0 && scrollPosition < 739) { this.highlightItem('home');}
       else if (scrollPosition >= 739 && scrollPosition < 1739) { this.highlightItem('bio');}
-      else if (scrollPosition >= 1739 && scrollPosition < 2739) { this.highlightItem('projects');}
-      else if (scrollPosition >= 2739 && scrollPosition <= 2891) { this.highlightItem('contact');}
+      else if (scrollPosition >= 1739 && scrollPosition < 2410) { this.highlightItem('projects');}
+      else if (scrollPosition >= 2520 && scrollPosition <= 2891) { this.highlightItem('contact');}
       this.scrollService.mainScrollOffset = scrollPosition;
   }
 }
