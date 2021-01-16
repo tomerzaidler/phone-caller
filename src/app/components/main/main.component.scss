@@ -64,7 +64,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 1;
+    will-change : transform;
+    z-index: 1999999;
 
   }
 
